@@ -135,9 +135,11 @@ void JamesCA::mainMenu()
 		JamesCurses::wrefresh(titleBox);
 	
 		WINDOW *win = JamesCurses::newwin(15, 40, 14, (COLS / 2) - 20);
-	JamesCurses::wbkgd(win, COLOR_PAIR(static_cast<int>(JamesConsoleUI::Color::White_Yellow)));
-		JamesCurses::mvwprintw(win, 2, 15, "-MAIN MENU-");
-		JamesCurses::wrefresh(win);
+		WINDOW *shadowWin = JamesCurses::newwin(15, 40, 15, (COLS / 2) - 19);
+			JamesCurses::wbkgd(win, COLOR_PAIR(static_cast<int>(JamesConsoleUI::Color::White_Yellow)));
+			JamesCurses::mvwprintw(win, 2, 15, "-MAIN MENU-");
+			JamesCurses::wrefresh(shadowWin);
+			JamesCurses::wrefresh(win);
 
 
 		JamesCurses::wattron(mainWindow, A_BOLD | COLOR_PAIR(static_cast<int>(JamesConsoleUI::Color::Yellow_Cyan)));

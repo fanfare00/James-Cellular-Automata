@@ -1,8 +1,8 @@
-﻿Build started 9/9/2014 4:24:33 AM.
+﻿Build started 9/9/2014 6:41:35 AM.
      1>Project "C:\Users\james\Desktop\CompSci\OOPS\Visual Studio Projects\James McCarthy - TA#1.3CA - Cellular Automata\JamesCA\JamesCA\JamesCA.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\james\Desktop\CompSci\OOPS\Visual Studio Projects\James McCarthy - TA#1.3CA - Cellular Automata\JamesCA\JamesCA\include" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib JamesCA.cpp
-         JamesCA.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\james\Desktop\CompSci\OOPS\Visual Studio Projects\James McCarthy - TA#1.3CA - Cellular Automata\JamesCA\JamesCA\include" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib JamesConsoleUI.cpp
+         JamesConsoleUI.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\james\Desktop\CompSci\OOPS\Visual Studio Projects\James McCarthy - TA#1.3CA - Cellular Automata\JamesCA\Debug\JamesCA.exe" /INCREMENTAL /NOLOGO "C:\Users\james\Desktop\CompSci\OOPS\Visual Studio Projects\James McCarthy - TA#1.3CA - Cellular Automata\JamesCA\JamesCA\lib\pdcurses.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\james\Desktop\CompSci\OOPS\Visual Studio Projects\James McCarthy - TA#1.3CA - Cellular Automata\JamesCA\Debug\JamesCA.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\JamesCA.obj
          Debug\JamesConsoleUI.obj
@@ -13,4 +13,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.30
+Time Elapsed 00:00:01.05

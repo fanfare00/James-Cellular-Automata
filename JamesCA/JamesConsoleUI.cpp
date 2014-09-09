@@ -63,13 +63,16 @@ void JamesConsoleUI::showDateTime(WINDOW* win, int y, int x)
 WINDOW* JamesConsoleUI::titleBox()
 {
 	WINDOW *win = JamesCurses::newwin(5, 40, 2, (COLS/2) - 20);
+	WINDOW *shadowWin = JamesCurses::newwin(5, 40, 3, (COLS / 2) - 19);
 	JamesCurses::wbox(win, 0, 183);
-	//JamesCurses::init_pair(2, COLOR_BLACK, COLOR_GREEN );
+
 	JamesCurses::wbkgd(win, COLOR_PAIR(static_cast<int>(JamesConsoleUI::Color::Black_Green)));
 
 
 
+	JamesCurses::wrefresh(shadowWin);
 	JamesCurses::wrefresh(win);
+	
 
 	return win;
 }
