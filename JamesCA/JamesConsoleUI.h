@@ -1,4 +1,6 @@
 #include "curses.h"
+#include <string>
+using namespace std;
 
 class JamesConsoleUI
 {
@@ -16,12 +18,18 @@ public:
 
 	/*static void inputPopUpWindow(char* prompt);*/
 	static WINDOW* titleBox();
-	static WINDOW* popUpWindow();
-	static WINDOW* largePopUpWindow();
+	static WINDOW* messageFrame();
+	static WINDOW* largeMessageFrame();
 	
 	static void hitEnter(WINDOW* win);
 	static int navigationMenu(WINDOW *win, char* menuItems[], int numMenuItems);
 	static void printMenuItems(WINDOW *win, char* menuItems[], int numMenuItems, int highlight);
+
+
+	static string showInputMessage(WINDOW* parentWindow, string title, string message);
+	static void showConfirmationMessage(WINDOW* parentWindow, string title, string message);
+	static void showMessage(WINDOW* parentWindow, string title, string message);
+	static void showLargeMessage(WINDOW* parentWindow, string title, string message);
 
 	enum class Color
 	{

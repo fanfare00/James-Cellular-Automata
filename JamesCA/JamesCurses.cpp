@@ -36,6 +36,11 @@ int JamesCurses::noecho()
 	return ::noecho();
 }
 
+int JamesCurses::echo()
+{
+	return ::echo();
+}
+
 int JamesCurses::cbreak()
 {
 	return ::cbreak();
@@ -84,8 +89,6 @@ int JamesCurses::mvprintw(int y, int x, char *fmt, ...)
 	return ret;
 
 }
-
-
 
 
 int JamesCurses::wbox(WINDOW *win, chtype verch, chtype horch)

@@ -4,10 +4,6 @@ using namespace std;
 #include <string>
 #include <bitset>
 
-
-
-
-
 JamesCA::~JamesCA()
 {
 	JamesCurses::endwin();
@@ -31,10 +27,8 @@ void JamesCA::setUp()
 }
 
 
-
 void JamesCA::refreshBackground()
 {
-
 
 	JamesCurses::resize_term(40, 90);
 	JamesCurses::delwin(mainWindow);
@@ -195,124 +189,62 @@ void JamesCA::mainMenu()
 
 void JamesCA::displayStars()
 {
-	WINDOW* starWindow = JamesConsoleUI::largePopUpWindow();
-	JamesCurses::mvwprintwCentered(starWindow, 2, "STARS");
-	JamesCurses::mvwprintwCentered(starWindow, 5, "1 - did some stuff");
-	JamesCurses::mvwprintwCentered(starWindow, 6, "Assignment #            :      TA #1.2CA         ");
-	JamesCurses::mvwprintwCentered(starWindow, 7, "Assignment Name         :      Cellular Automata ");
-	JamesCurses::mvwprintwCentered(starWindow, 8, "Course # and Title      :      CISC 205 - OOPS   ");
-	JamesCurses::mvwprintwCentered(starWindow, 9, "Class Meeting Time      :      TTh 9:35 - 12:40  ");
-	JamesCurses::mvwprintwCentered(starWindow, 10, "Instructor              :      Professor Forman  ");
-	JamesCurses::mvwprintwCentered(starWindow, 11, "Hours                   :      15                ");
-	JamesCurses::mvwprintwCentered(starWindow, 12, "Difficulty              :      5                 ");
-	JamesCurses::mvwprintwCentered(starWindow, 13, "Completion Date         :      9/11/2014         ");
-	JamesCurses::mvwprintwCentered(starWindow, 14, "Project Name            :      JamesCA           ");
+	//WINDOW* starWindow = JamesConsoleUI::largePopUpWindow();
+	//JamesCurses::mvwprintwCentered(starWindow, 2, "STARS");
+	//JamesCurses::mvwprintwCentered(starWindow, 5, "1 - did some stuff");
+	//JamesCurses::mvwprintwCentered(starWindow, 6, "Assignment #            :      TA #1.2CA         ");
+	//JamesCurses::mvwprintwCentered(starWindow, 7, "Assignment Name         :      Cellular Automata ");
+	//JamesCurses::mvwprintwCentered(starWindow, 8, "Course # and Title      :      CISC 205 - OOPS   ");
+	//JamesCurses::mvwprintwCentered(starWindow, 9, "Class Meeting Time      :      TTh 9:35 - 12:40  ");
+	//JamesCurses::mvwprintwCentered(starWindow, 10, "Instructor              :      Professor Forman  ");
+	//JamesCurses::mvwprintwCentered(starWindow, 11, "Hours                   :      15                ");
+	//JamesCurses::mvwprintwCentered(starWindow, 12, "Difficulty              :      5                 ");
+	//JamesCurses::mvwprintwCentered(starWindow, 13, "Completion Date         :      9/11/2014         ");
+	//JamesCurses::mvwprintwCentered(starWindow, 14, "Project Name            :      JamesCA           ");
 
-	JamesCurses::mvwprintwCentered(starWindow, 15, "TOTAL STARS: X");
-
-
-
-	JamesCurses::wrefresh(starWindow);
+	//JamesCurses::mvwprintwCentered(starWindow, 15, "TOTAL STARS: X");
 
 
-	JamesConsoleUI::hitEnter(starWindow);
+
+	//JamesCurses::wrefresh(starWindow);
+
+
+	//JamesConsoleUI::hitEnter(starWindow);
+
+
+
+
 	refreshBackground();
 	mainMenu();
 }
 
 void JamesCA::patternMenu()
 {
-	char nLines[3];
-	char patternCode[3];
+	string nLines;
+	string patternCode;
 
-	JamesCurses::curs_set(1);
-	echo();
-
-	WINDOW *entryPopUp = JamesConsoleUI::popUpWindow();
-		JamesCurses::wattron(entryPopUp, A_BOLD | WA_BLINK);
-		JamesCurses::mvwprintwCentered(entryPopUp, 6, "CONTINUE");
-		JamesCurses::wattroff(entryPopUp, A_BOLD | WA_BLINK);
-
-		JamesCurses::mvwprintwCentered(entryPopUp, 1, "  Please enter number of lines: ");
-		JamesCurses::mvwprintw(entryPopUp, 3, 11, " ");
-		JamesCurses::wrefresh(entryPopUp);
-
-	WINDOW *lineBox = JamesCurses::newwin(3, 30, 18, 30);
-		JamesCurses::wbox(lineBox, 0, 0);
-		JamesCurses::wrefresh(lineBox);
-
-	wgetstr(entryPopUp, nLines);
-
-		JamesCurses::werase(entryPopUp);
-		JamesCurses::wbox(entryPopUp, 0, 0);
-		JamesCurses::wattron(entryPopUp, A_BOLD | WA_BLINK);
-		JamesCurses::mvwprintwCentered(entryPopUp, 6, "CONTINUE");
-		JamesCurses::wattroff(entryPopUp, A_BOLD | WA_BLINK);
-
-		JamesCurses::mvwprintwCentered(entryPopUp, 1, "  Please enter pattern number (0-256): ");
-		JamesCurses::mvwprintw(entryPopUp, 3, 11, " ");
-		JamesCurses::wrefresh(entryPopUp);
+	nLines = JamesConsoleUI::showInputMessage(mainWindow, "Enter Lines", "Please enter number of lines: ");
+	patternCode = JamesConsoleUI::showInputMessage(mainWindow, "Enter Pattern Code", "Please enter pattern number (0-255)");
 
 
-		JamesCurses::werase(lineBox);
-		lineBox = JamesCurses::newwin(3, 30, 18, 30);
-		JamesCurses::wbox(lineBox, 0, 0);
-		JamesCurses::wrefresh(lineBox);
-
-	wgetstr(entryPopUp, patternCode);
-
-
-	JamesCurses::curs_set(0);
-	JamesCurses::noecho();
-	
-	string binary = std::bitset<8>(atoi(patternCode)).to_string();
+	string binary = std::bitset<8>(stoi(patternCode)).to_string();
 	char *ruleSet = (char*)binary.c_str();
 
-	JamesCurses::werase(entryPopUp);
-	JamesCurses::werase(lineBox);
-
-	displayPattern(atoi(nLines), ruleSet, patternCode);
+	
+	displayPattern(stoi(nLines), ruleSet, (char*)patternCode.c_str());
 }
 
 
 void JamesCA::signIn()
 {
 
-	JamesCurses::curs_set(1);
-	echo();
-
-	WINDOW *entryPopUp = JamesConsoleUI::popUpWindow();
-
-		JamesCurses::wattron(entryPopUp, A_BOLD | WA_BLINK);
-		JamesCurses::mvwprintwCentered(entryPopUp, 6, "CONTINUE");
-		JamesCurses::wattroff(entryPopUp, A_BOLD | WA_BLINK);
-
-		JamesCurses::mvwprintw(entryPopUp, 1, 11, "  Please enter your name: ");
-		JamesCurses::mvwprintw(entryPopUp, 3, 11, " ");
-		JamesCurses::wrefresh(entryPopUp);
-
-	WINDOW *nameBox = JamesCurses::newwin(3, 30, 18, 30);
-		JamesCurses::wbox(nameBox, 0, 0);
-		JamesCurses::wrefresh(nameBox);
+	userName = JamesConsoleUI::showInputMessage(mainWindow, "Enter Your Name", "Please enter your name:");
 	
-	wgetstr(entryPopUp, userName);
 	defaultStatus = ("You are currently signed in as:");
-
-	JamesCurses::curs_set(0);
-	JamesCurses::noecho();
 	
-	WINDOW *echoPopUp = JamesConsoleUI::popUpWindow();
-		JamesCurses::mvwprintw(echoPopUp, 3, 9, "Thank you for joining us %s.", userName);
-		JamesCurses::wattron(echoPopUp, A_BOLD | WA_BLINK);
-		JamesCurses::mvwprintwCentered(echoPopUp, 6, "CONTINUE");
-		JamesCurses::wattroff(echoPopUp, A_BOLD | WA_BLINK);
-		JamesCurses::wrefresh(echoPopUp);
-		JamesCurses::wgetch(echoPopUp);
+	JamesConsoleUI::showMessage(mainWindow, "Welcome", "Thank you for joining us " + userName);
 
 
-	//JamesCurses::werase(entryPopUp);
-	JamesCurses::werase(echoPopUp);
-	//JamesCurses::werase(nameBox);
 	refreshBackground();
 	mainMenu();
 
@@ -322,7 +254,7 @@ void JamesCA::signIn()
 
 void JamesCA::displayLogo()
 {
-		WINDOW* logoWindow = JamesConsoleUI::largePopUpWindow();
+		WINDOW* logoWindow = JamesConsoleUI::largeMessageFrame();
 			JamesCurses::mvwprintwCentered(logoWindow, 2, "THANK YOU FOR VIEWING JAMES' LOGO");
 			
 		int c = 1;
@@ -539,25 +471,25 @@ void JamesCA::displayPattern(int nSteps, char* ruleSet, char* patternCode)
 
 void JamesCA::idInfo()
 {
-	WINDOW* idWindow = JamesConsoleUI::largePopUpWindow();
-		JamesCurses::mvwprintwCentered(idWindow, 2,  "ID INFORMATION");
-		JamesCurses::mvwprintwCentered(idWindow, 5,  "Programmer              :      James McCarthy    ");
-		JamesCurses::mvwprintwCentered(idWindow, 6,  "Assignment #            :      TA #1.2CA         ");
-		JamesCurses::mvwprintwCentered(idWindow, 7,  "Assignment Name         :      Cellular Automata ");
-		JamesCurses::mvwprintwCentered(idWindow, 8,  "Course # and Title      :      CISC 205 - OOPS   ");
-		JamesCurses::mvwprintwCentered(idWindow, 9,  "Class Meeting Time      :      TTh 9:35 - 12:40  ");
-		JamesCurses::mvwprintwCentered(idWindow, 10, "Instructor              :      Professor Forman  ");
-		JamesCurses::mvwprintwCentered(idWindow, 11, "Hours                   :      15                ");
-		JamesCurses::mvwprintwCentered(idWindow, 12, "Difficulty              :      5                 ");
-		JamesCurses::mvwprintwCentered(idWindow, 13, "Completion Date         :      9/11/2014         ");
-		JamesCurses::mvwprintwCentered(idWindow, 14, "Project Name            :      JamesCA           ");
+	//WINDOW* idWindow = JamesConsoleUI::largePopUpWindow();
+	//	JamesCurses::mvwprintwCentered(idWindow, 2,  "ID INFORMATION");
+	//	JamesCurses::mvwprintwCentered(idWindow, 5,  "Programmer              :      James McCarthy    ");
+	//	JamesCurses::mvwprintwCentered(idWindow, 6,  "Assignment #            :      TA #1.2CA         ");
+	//	JamesCurses::mvwprintwCentered(idWindow, 7,  "Assignment Name         :      Cellular Automata ");
+	//	JamesCurses::mvwprintwCentered(idWindow, 8,  "Course # and Title      :      CISC 205 - OOPS   ");
+	//	JamesCurses::mvwprintwCentered(idWindow, 9,  "Class Meeting Time      :      TTh 9:35 - 12:40  ");
+	//	JamesCurses::mvwprintwCentered(idWindow, 10, "Instructor              :      Professor Forman  ");
+	//	JamesCurses::mvwprintwCentered(idWindow, 11, "Hours                   :      15                ");
+	//	JamesCurses::mvwprintwCentered(idWindow, 12, "Difficulty              :      5                 ");
+	//	JamesCurses::mvwprintwCentered(idWindow, 13, "Completion Date         :      9/11/2014         ");
+	//	JamesCurses::mvwprintwCentered(idWindow, 14, "Project Name            :      JamesCA           ");
 	
 
 	
-	JamesCurses::wrefresh(idWindow);
+	//JamesCurses::wrefresh(idWindow);
+	//JamesConsoleUI::hitEnter(idWindow);
 
 
-	JamesConsoleUI::hitEnter(idWindow);
 	refreshBackground();
 	mainMenu();
 
@@ -565,24 +497,26 @@ void JamesCA::idInfo()
 
 void JamesCA::credits()
 {
-	WINDOW* creditsWindow = JamesConsoleUI::largePopUpWindow();
-		JamesCurses::mvwprintwCentered(creditsWindow, 2,  "CREDITS");
-		JamesCurses::mvwprintwCentered(creditsWindow, 5,  "James' Cellular Automata Program was created by James McCarthy for");
-		JamesCurses::mvwprintwCentered(creditsWindow, 6,  "Larry Forman's Fall 2014 CISC 205 Object Oriented C++ class at San");
-		JamesCurses::mvwprintwCentered(creditsWindow, 7,  "Diego City College. Thank you to Nils Olsson for introducing me to");
-		JamesCurses::mvwprintwCentered(creditsWindow, 8,  "PDCurses and helping me set it up in Visual Studio. Thank you to  ");
-		JamesCurses::mvwprintwCentered(creditsWindow, 9,  "the creators of PDCurses and ncurses for providing documentation  ");
-		JamesCurses::mvwprintwCentered(creditsWindow, 10, "that helped me learn the ins and outs of ncurses/PDCurses.        ");
+	JamesConsoleUI::showLargeMessage(
+		mainWindow,
+		"CREDITS",
+		"James' Cellular Automata Program was created by James McCarthy for "
+		"Larry Forman's Fall 2014 CISC 205 Object Oriented C++ class at San "
+		"Diego City College. Thank you to Nils Olsson for introducing me to "
+		"PDCurses and helping me set it up in Visual Studio. Thank you to the "
+		"creators of PDCurses and ncurses for providing documentation that "
+		"helped me learn the ins and outs of ncurses/PDCurses.\n\n"
+		" My Personal Blog  :   www.jdonaldmccarthy.wordpress.com\n"
+		" My Github Profile :   www.github.com/fanfare00");
 
-		JamesCurses::mvwprintwCentered(creditsWindow, 12, "PDCurses Website  :   www.pdcurses.sourceforge.net      ");
-		JamesCurses::mvwprintwCentered(creditsWindow, 13, "My Personal Blog  :   www.jdonaldmccarthy.wordpress.com ");
-		JamesCurses::mvwprintwCentered(creditsWindow, 14, "My Github Profile :   www.github.com/fanfare00          ");
+	JamesConsoleUI::showLargeMessage(
+	mainWindow,
+		"RESOURCES",
+		"PDCurses Website  :   www.pdcurses.sourceforge.net\n"
+		" add more links");
+																				
 
 
-	JamesCurses::wrefresh(creditsWindow);
-
-
-	JamesConsoleUI::hitEnter(creditsWindow);
 	refreshBackground();
 	mainMenu();
 }
@@ -590,31 +524,7 @@ void JamesCA::credits()
 
 void JamesCA::farewell()
 {
-	WINDOW* win = JamesConsoleUI::popUpWindow();
-
-	JamesCurses::wattron(mainWindow, A_BOLD | COLOR_PAIR(static_cast<int>(JamesConsoleUI::Color::Green_Cyan)));
-	JamesConsoleUI::showDateTime(mainWindow, 10, 37);
-	JamesCurses::wattron(mainWindow, A_BOLD | COLOR_PAIR(static_cast<int>(JamesConsoleUI::Color::Green_Cyan)));
-	JamesCurses::wrefresh(mainWindow);
-
-
-	JamesCurses::mvwprintw(win, 1, 2, "Farewell, %s", userName);
-	JamesCurses::mvwprintw(win, 3, 2, "Thank you for using James' Cellular Automata.");
-	JamesCurses::mvwprintwCentered(win, 6, "Hit <ESC> to Close");
-	JamesCurses::wrefresh(win);
-
-	nodelay(win, TRUE);
-
-	if (JamesCurses::wgetch(win) == 27)
-	{
-		exit(1);
-	}
-	else
-	{
-		napms(1000);
-		farewell();
-		
-	}
+	JamesConsoleUI::showMessage(mainWindow, "Farewell", "Thank you for using " + MY_NAME + "' Cellular Automata");
 
 }
 
@@ -622,9 +532,5 @@ int main(int argc, char *argv[])
 {
 	JamesCA::getInstance().start();
 
-
 	return 0;
-
-	return 0;
-	
 }

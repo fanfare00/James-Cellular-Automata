@@ -12,11 +12,12 @@ class JamesCA
 {
 public: 
 
-	char userName[80];
+	//char userName[80];
+	string userName;
+	const string MY_NAME = "James";
 	char* defaultStatus = "You are currently not signed in.";
 
 	WINDOW *mainWindow;
-//	WINDOW *terminal;
 
 	static JamesCA& getInstance();
 	~JamesCA();
@@ -36,14 +37,7 @@ public:
 	void idInfo();
 	void farewell();
 
-
-
-private:
-	std::vector<WINDOW *> windows_;
 	
-
-	
-
 
 };
 

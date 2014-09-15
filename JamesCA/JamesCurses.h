@@ -23,6 +23,9 @@ public:
 	// No echoing
 	static int noecho();
 
+	// Enable echoing
+	static int echo();
+
 	// No buffering
 	static int cbreak();
 
