@@ -10,6 +10,18 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ConsoleWordWrapper.h" />
+    <ClInclude Include="src\JamesCA.h" />
+    <ClInclude Include="src\JamesConsoleUI.h" />
+    <ClInclude Include="src\JamesCurses.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\ConsoleWordWrapper.cpp" />
+    <ClCompile Include="src\JamesCA.cpp" />
+    <ClCompile Include="src\JamesConsoleUI.cpp" />
+    <ClCompile Include="src\JamesCurses.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7B474BFB-D2A1-4911-8292-FE9D21601D31}</ProjectGuid>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -70,18 +82,6 @@
       <AdditionalDependencies />
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="ConsoleWordWrapper.cpp" />
-    <ClCompile Include="JamesCA.cpp" />
-    <ClCompile Include="JamesConsoleUI.cpp" />
-    <ClCompile Include="JamesCurses.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="ConsoleWordWrapper.h" />
-    <ClInclude Include="JamesCA.h" />
-    <ClInclude Include="JamesConsoleUI.h" />
-    <ClInclude Include="JamesCurses.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -29,17 +29,11 @@ void JamesCA::setUp()
 
 void JamesCA::refreshBackground()
 {
-
 	JamesCurses::resize_term(40, 90);
 	JamesCurses::delwin(mainWindow);
 	
-
 	mainWindow = JamesCurses::newwin(LINES, COLS, 0, 0);
 	JamesCurses::wbkgd(mainWindow, COLOR_PAIR(static_cast<int>(JamesConsoleUI::Color::Blue_Cyan)));
-
-	//JamesCurses::wattron(mainWindow, A_BOLD | COLOR_PAIR(static_cast<int>(JamesConsoleUI::Color::Yellow_Cyan)));
-	//JamesCurses::mvwprintw(mainWindow, LINES - 2, 0, "Welcome to James' Cellular Automata Program");
-	//JamesCurses::wattroff(mainWindow, A_BOLD | COLOR_PAIR(static_cast<int>(JamesConsoleUI::Color::Yellow_Cyan)));
 
 	JamesCurses::wattron(mainWindow, A_BOLD | COLOR_PAIR(static_cast<int>(JamesConsoleUI::Color::Green_Cyan)));
 	JamesCurses::mvwprintw(mainWindow, LINES - 1, 0, "%s %s", defaultStatus, userName);
@@ -55,8 +49,6 @@ void JamesCA::start()
 	setUp();
 	refreshBackground();
 	welcomeScreen();
-
-
 }
 
 
@@ -119,6 +111,8 @@ void JamesCA::welcomeScreen()
 void JamesCA::mainMenu()
 {
 	char *menuItems[] = { "SIGN IN", "DISPLAY LOGO", "CELLULAR AUTOMATA", "ID INFORMATION", "CREDITS", "STARS", "EXIT" };
+
+	//showNavMenu(x, y, items[]);
 
 	int choice = 0;
 
