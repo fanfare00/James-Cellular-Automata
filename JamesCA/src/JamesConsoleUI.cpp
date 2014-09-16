@@ -139,7 +139,25 @@ void JamesConsoleUI::showLargeMessage(WINDOW* parentWindow, string title, string
 
 }
 
+int JamesConsoleUI::showNavMenu(WINDOW* parentWindow, string title, char* menuItems[], int nMenuItems)
+{
+	int choice;
+	char* cTitle = (char*)title.c_str();
 
+	WINDOW *win = JamesCurses::newwin(15, 40, 14, (COLS / 2) - 20);
+	WINDOW *shadowWin = JamesCurses::newwin(15, 40, 15, (COLS / 2) - 19);
+	JamesCurses::wbkgd(win, COLOR_PAIR(static_cast<int>(JamesConsoleUI::Color::White_Yellow)));
+	JamesCurses::mvwprintw(win, 2, 15, cTitle);
+	JamesCurses::wrefresh(shadowWin);
+	JamesCurses::wrefresh(win);
+
+	choice = JamesConsoleUI::navigationMenu(win, menuItems, nMenuItems);
+
+
+	return choice;
+
+
+}
 
 WINDOW* JamesConsoleUI::titleBox()
 {

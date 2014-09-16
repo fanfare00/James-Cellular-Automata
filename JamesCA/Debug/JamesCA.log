@@ -1,41 +1,17 @@
-﻿Build started 9/15/2014 1:42:09 AM.
-     1>Project "C:\Users\JamesM\Desktop\OOPS\Visual Studio Projects\James McCarthy -TA#1.3CA - Cellular Automata\James-Cellular-Automata\JamesCA\JamesCA.vcxproj" on node 2 (Build target(s)).
+﻿Build started 9/15/2014 5:05:13 PM.
+     1>Project "C:\Users\james\Desktop\CompSci\OOPS\Visual Studio Projects\James McCarthy - TA#1.3CA - Cellular Automata\JamesCA\JamesCA\JamesCA.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\JamesM\Desktop\OOPS\Visual Studio Projects\James McCarthy -TA#1.3CA - Cellular Automata\James-Cellular-Automata\JamesCA\include" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib src\ConsoleWordWrapper.cpp src\JamesCA.cpp src\JamesConsoleUI.cpp src\JamesCurses.cpp
-         ConsoleWordWrapper.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\james\Desktop\CompSci\OOPS\Visual Studio Projects\James McCarthy - TA#1.3CA - Cellular Automata\JamesCA\JamesCA\include" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib src\JamesCA.cpp
          JamesCA.cpp
-         JamesConsoleUI.cpp
-         JamesCurses.cpp
-         Generating Code...
-     1>c:\users\jamesm\desktop\oops\visual studio projects\james mccarthy -ta#1.3ca - cellular automata\james-cellular-automata\jamesca\src\jamescurses.cpp(50): warning C4793: 'JamesCurses::mvwprintw' : function compiled as native :
-         	varargs not supported under /clr
-     1>c:\users\jamesm\desktop\oops\visual studio projects\james mccarthy -ta#1.3ca - cellular automata\james-cellular-automata\jamesca\src\jamescurses.cpp(54): warning C4793: 'JamesCurses::mvwprintw' : function compiled as native :
-         	Found an intrinsic not supported in managed code
-     1>c:\users\jamesm\desktop\oops\visual studio projects\james mccarthy -ta#1.3ca - cellular automata\james-cellular-automata\jamesca\src\jamescurses.cpp(57): warning C4793: 'JamesCurses::mvwprintw' : function compiled as native :
-         	Found an intrinsic not supported in managed code
-     1>c:\users\jamesm\desktop\oops\visual studio projects\james mccarthy -ta#1.3ca - cellular automata\james-cellular-automata\jamesca\src\jamescurses.cpp(63): warning C4793: 'JamesCurses::mvwprintwCentered' : function compiled as native :
-         	varargs not supported under /clr
-     1>c:\users\jamesm\desktop\oops\visual studio projects\james mccarthy -ta#1.3ca - cellular automata\james-cellular-automata\jamesca\src\jamescurses.cpp(69): warning C4793: 'JamesCurses::mvwprintwCentered' : function compiled as native :
-         	Found an intrinsic not supported in managed code
-     1>c:\users\jamesm\desktop\oops\visual studio projects\james mccarthy -ta#1.3ca - cellular automata\james-cellular-automata\jamesca\src\jamescurses.cpp(72): warning C4793: 'JamesCurses::mvwprintwCentered' : function compiled as native :
-         	Found an intrinsic not supported in managed code
-     1>c:\users\jamesm\desktop\oops\visual studio projects\james mccarthy -ta#1.3ca - cellular automata\james-cellular-automata\jamesca\src\jamescurses.cpp(79): warning C4793: 'JamesCurses::mvprintw' : function compiled as native :
-         	varargs not supported under /clr
-     1>c:\users\jamesm\desktop\oops\visual studio projects\james mccarthy -ta#1.3ca - cellular automata\james-cellular-automata\jamesca\src\jamescurses.cpp(83): warning C4793: 'JamesCurses::mvprintw' : function compiled as native :
-         	Found an intrinsic not supported in managed code
-     1>c:\users\jamesm\desktop\oops\visual studio projects\james mccarthy -ta#1.3ca - cellular automata\james-cellular-automata\jamesca\src\jamescurses.cpp(86): warning C4793: 'JamesCurses::mvprintw' : function compiled as native :
-         	Found an intrinsic not supported in managed code
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\JamesM\Desktop\OOPS\Visual Studio Projects\James McCarthy -TA#1.3CA - Cellular Automata\James-Cellular-Automata\JamesCA\include" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /analyze- /errorReport:prompt "C:\Users\JamesM\AppData\Local\Temp\.NETFramework,Version=v4.5.AssemblyAttributes.cpp"
-         .NETFramework,Version=v4.5.AssemblyAttributes.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\JamesM\Desktop\OOPS\Visual Studio Projects\James McCarthy -TA#1.3CA - Cellular Automata\James-Cellular-Automata\Debug\JamesCA.exe" /INCREMENTAL /NOLOGO "C:\Users\JamesM\Desktop\OOPS\Visual Studio Projects\James McCarthy -TA#1.3CA - Cellular Automata\James-Cellular-Automata\JamesCA\lib\pdcurses.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\JamesM\Desktop\OOPS\Visual Studio Projects\James McCarthy -TA#1.3CA - Cellular Automata\James-Cellular-Automata\Debug\JamesCA.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\ConsoleWordWrapper.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\james\Desktop\CompSci\OOPS\Visual Studio Projects\James McCarthy - TA#1.3CA - Cellular Automata\JamesCA\Debug\JamesCA.exe" /INCREMENTAL /NOLOGO "C:\Users\james\Desktop\CompSci\OOPS\Visual Studio Projects\James McCarthy - TA#1.3CA - Cellular Automata\JamesCA\JamesCA\lib\pdcurses.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\james\Desktop\CompSci\OOPS\Visual Studio Projects\James McCarthy - TA#1.3CA - Cellular Automata\JamesCA\Debug\JamesCA.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\ConsoleWordWrapper.obj
          Debug\JamesCA.obj
          Debug\JamesConsoleUI.obj
          Debug\JamesCurses.obj
          "Debug\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
-         JamesCA.vcxproj -> C:\Users\JamesM\Desktop\OOPS\Visual Studio Projects\James McCarthy -TA#1.3CA - Cellular Automata\James-Cellular-Automata\Debug\JamesCA.exe
-     1>Done Building Project "C:\Users\JamesM\Desktop\OOPS\Visual Studio Projects\James McCarthy -TA#1.3CA - Cellular Automata\James-Cellular-Automata\JamesCA\JamesCA.vcxproj" (Build target(s)).
+         JamesCA.vcxproj -> C:\Users\james\Desktop\CompSci\OOPS\Visual Studio Projects\James McCarthy - TA#1.3CA - Cellular Automata\JamesCA\Debug\JamesCA.exe
+     1>Done Building Project "C:\Users\james\Desktop\CompSci\OOPS\Visual Studio Projects\James McCarthy - TA#1.3CA - Cellular Automata\JamesCA\JamesCA\JamesCA.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:09.22
+Time Elapsed 00:00:01.81

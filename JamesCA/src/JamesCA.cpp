@@ -112,8 +112,6 @@ void JamesCA::mainMenu()
 {
 	char *menuItems[] = { "SIGN IN", "DISPLAY LOGO", "CELLULAR AUTOMATA", "ID INFORMATION", "CREDITS", "STARS", "EXIT" };
 
-	//showNavMenu(x, y, items[]);
-
 	int choice = 0;
 
 	refreshBackground();
@@ -122,63 +120,38 @@ void JamesCA::mainMenu()
 		JamesCurses::mvwprintw(titleBox, 2, 5, "James Cellular Automata Program");
 		JamesCurses::wrefresh(titleBox);
 	
-		WINDOW *win = JamesCurses::newwin(15, 40, 14, (COLS / 2) - 20);
-		WINDOW *shadowWin = JamesCurses::newwin(15, 40, 15, (COLS / 2) - 19);
-			JamesCurses::wbkgd(win, COLOR_PAIR(static_cast<int>(JamesConsoleUI::Color::White_Yellow)));
-			JamesCurses::mvwprintw(win, 2, 15, "-MAIN MENU-");
-			JamesCurses::wrefresh(shadowWin);
-			JamesCurses::wrefresh(win);
 
-
-		JamesCurses::wattron(mainWindow, A_BOLD | COLOR_PAIR(static_cast<int>(JamesConsoleUI::Color::Yellow_Cyan)));
-	JamesCurses::mvwprintwCentered(mainWindow, 30, "Use the arrow keys to move up and down");
-	JamesCurses::mvwprintwCentered(mainWindow, 31, "Press <ENTER> to make a selection");
-	JamesCurses::wattron(mainWindow, A_BOLD | COLOR_PAIR(static_cast<int>(JamesConsoleUI::Color::Yellow_Cyan)));
-	JamesCurses::wrefresh(mainWindow);
-
-	choice = JamesConsoleUI::navigationMenu(win, menuItems, 7);
-
-		
-	if (JamesConsoleUI::popUpConfirm(menuItems[choice - 1]))
+	switch (JamesConsoleUI::showNavMenu(mainWindow, "-MAIN MENU-", menuItems, 7))
 	{
-		switch (choice)
-		{
-			case 1:
-				signIn();
-				break;
+		case 1:
+			signIn();
+			break;
 
-			case 2:
-				displayLogo();
-				break;
+		case 2:
+			displayLogo();
+			break;
 
-			case 3:
-				patternMenu();
+		case 3:
+			patternMenu();
+			break;
 
-				break;
-			case 4:
-				idInfo();
-				break;
-			case 5:
-				credits();
-				break;
+		case 4:
+			idInfo();
+			break;
+		
+		case 5:
+			credits();
+			break;
 
-			case 6:
-				displayStars();
-				break;
+		case 6:
+			displayStars();
+			break;
 
-			case 7:
-				farewell();
-				break;
+		case 7:
+			farewell();
+			break;
 		}
-	}
-	else
-	{	
-		refreshBackground();
-		mainMenu();
-	}
-	
 
-	
 }
 
 void JamesCA::displayStars()

@@ -21,6 +21,7 @@ public:
 	static WINDOW* messageFrame();
 	static WINDOW* largeMessageFrame();
 	
+	//private
 	static void hitEnter(WINDOW* win);
 	static int navigationMenu(WINDOW *win, char* menuItems[], int numMenuItems);
 	static void printMenuItems(WINDOW *win, char* menuItems[], int numMenuItems, int highlight);
@@ -30,6 +31,7 @@ public:
 	static void showConfirmationMessage(WINDOW* parentWindow, string title, string message);
 	static void showMessage(WINDOW* parentWindow, string title, string message);
 	static void showLargeMessage(WINDOW* parentWindow, string title, string message);
+	static int showNavMenu(WINDOW* parentWindow, string title, char* menuItems[], int nMenuItems);
 
 	enum class Color
 	{
