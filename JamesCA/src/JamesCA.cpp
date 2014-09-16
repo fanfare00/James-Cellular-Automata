@@ -1,3 +1,47 @@
+/*******************************************************************************
+********************************************************************************
+********************************************************************************
+
+ID INFORMATION
+
+Programmer		   :  James McCarthy
+Assignment #	   :  TA #1.3CA
+Assignment Name	   :  Cellular Automata
+Course # and Title :  CISC 205 - OOPS
+Class Meeting Time :  TTh 9:35 - 12:40
+Instructor		   :  Professor Forman
+Hours			   :  17
+Difficulty		   :  5
+Completion Date	   :  9/11/2014
+Project Name	   :  JamesCA
+
+********************************************************************************
+********************************************************************************
+
+"JamesCA.cpp" DESCRIPTION
+
+
+
+********************************************************************************
+********************************************************************************
+
+CUSTOM-DEFINED FUNCTION LIST
+
+
+
+
+********************************************************************************
+********************************************************************************
+
+CREDITS
+
+
+
+
+********************************************************************************
+********************************************************************************
+********************************************************************************/
+
 using namespace std;
 
 #include "jamesCA.h"
@@ -6,7 +50,7 @@ using namespace std;
 
 JamesCA::~JamesCA()
 {
-	JamesCurses::endwin();
+	//JamesCurses::endwin();
 }
 
 JamesCA& JamesCA::getInstance()
@@ -36,7 +80,7 @@ void JamesCA::refreshBackground()
 	JamesCurses::wbkgd(mainWindow, COLOR_PAIR(static_cast<int>(JamesConsoleUI::Color::Blue_Cyan)));
 
 	JamesCurses::wattron(mainWindow, A_BOLD | COLOR_PAIR(static_cast<int>(JamesConsoleUI::Color::Green_Cyan)));
-	JamesCurses::mvwprintw(mainWindow, LINES - 1, 0, "%s %s", defaultStatus, userName);
+	JamesCurses::mvwprintw(mainWindow, LINES - 1, 0, "%s %s", defaultStatus, (char*)userName.c_str());
 	JamesCurses::wattroff(mainWindow, A_BOLD | COLOR_PAIR(static_cast<int>(JamesConsoleUI::Color::Green_Cyan)));
 
 	
@@ -120,64 +164,65 @@ void JamesCA::mainMenu()
 		JamesCurses::mvwprintw(titleBox, 2, 5, "James Cellular Automata Program");
 		JamesCurses::wrefresh(titleBox);
 	
+		choice = JamesConsoleUI::showNavMenu(mainWindow, "-MAIN MENU-", menuItems, 7);
 
-	switch (JamesConsoleUI::showNavMenu(mainWindow, "-MAIN MENU-", menuItems, 7))
-	{
-		case 1:
-			signIn();
-			break;
+		if (JamesConsoleUI::popUpConfirm(menuItems[choice - 1]))
+		{
+			switch (choice)
+			{
 
-		case 2:
-			displayLogo();
-			break;
+			case 1:
+				signIn();
+				break;
 
-		case 3:
-			patternMenu();
-			break;
+			case 2:
+				displayLogo();
+				break;
 
-		case 4:
-			idInfo();
-			break;
-		
-		case 5:
-			credits();
-			break;
+			case 3:
+				patternMenu();
+				break;
 
-		case 6:
-			displayStars();
-			break;
+			case 4:
+				idInfo();
+				break;
 
-		case 7:
-			farewell();
-			break;
+			case 5:
+				credits();
+				break;
+
+			case 6:
+				displayStars();
+				break;
+
+			case 7:
+				farewell();
+				break;
+			}
 		}
-
+		else
+		{
+			refreshBackground();
+			mainMenu();
+		}
 }
 
 void JamesCA::displayStars()
 {
-	//WINDOW* starWindow = JamesConsoleUI::largePopUpWindow();
-	//JamesCurses::mvwprintwCentered(starWindow, 2, "STARS");
-	//JamesCurses::mvwprintwCentered(starWindow, 5, "1 - did some stuff");
-	//JamesCurses::mvwprintwCentered(starWindow, 6, "Assignment #            :      TA #1.2CA         ");
-	//JamesCurses::mvwprintwCentered(starWindow, 7, "Assignment Name         :      Cellular Automata ");
-	//JamesCurses::mvwprintwCentered(starWindow, 8, "Course # and Title      :      CISC 205 - OOPS   ");
-	//JamesCurses::mvwprintwCentered(starWindow, 9, "Class Meeting Time      :      TTh 9:35 - 12:40  ");
-	//JamesCurses::mvwprintwCentered(starWindow, 10, "Instructor              :      Professor Forman  ");
-	//JamesCurses::mvwprintwCentered(starWindow, 11, "Hours                   :      15                ");
-	//JamesCurses::mvwprintwCentered(starWindow, 12, "Difficulty              :      5                 ");
-	//JamesCurses::mvwprintwCentered(starWindow, 13, "Completion Date         :      9/11/2014         ");
-	//JamesCurses::mvwprintwCentered(starWindow, 14, "Project Name            :      JamesCA           ");
 
-	//JamesCurses::mvwprintwCentered(starWindow, 15, "TOTAL STARS: X");
-
-
-
-	//JamesCurses::wrefresh(starWindow);
-
-
-	//JamesConsoleUI::hitEnter(starWindow);
-
+	JamesConsoleUI::showLargeMessage(
+		mainWindow,
+		"ID INFORMATION",
+		"1 - Display cellular outpu fully across 25 rows and 80 columns \n"
+		"2 - Display the rows and columns with a space for 0s and character for 1s\n"
+		"3 - Use color for the character representing the 1s\n"
+		"4 - Prompt user for number of rows to be displayed\n"
+		"5/6 - Create a simple way to let the user chose any possible pattern\n"
+		"7 - Create a new, enhanced, 'pizzazzy' logo\n"
+		"8 - Use 4+ colors througout\n"
+		"9 - Use custom header files\n"
+		"10 - Add extra pizzaz: creating a library that can be re-used\n"
+		"11 - Demo before due-date\n");
 
 
 
@@ -438,23 +483,19 @@ void JamesCA::displayPattern(int nSteps, char* ruleSet, char* patternCode)
 
 void JamesCA::idInfo()
 {
-	//WINDOW* idWindow = JamesConsoleUI::largePopUpWindow();
-	//	JamesCurses::mvwprintwCentered(idWindow, 2,  "ID INFORMATION");
-	//	JamesCurses::mvwprintwCentered(idWindow, 5,  "Programmer              :      James McCarthy    ");
-	//	JamesCurses::mvwprintwCentered(idWindow, 6,  "Assignment #            :      TA #1.2CA         ");
-	//	JamesCurses::mvwprintwCentered(idWindow, 7,  "Assignment Name         :      Cellular Automata ");
-	//	JamesCurses::mvwprintwCentered(idWindow, 8,  "Course # and Title      :      CISC 205 - OOPS   ");
-	//	JamesCurses::mvwprintwCentered(idWindow, 9,  "Class Meeting Time      :      TTh 9:35 - 12:40  ");
-	//	JamesCurses::mvwprintwCentered(idWindow, 10, "Instructor              :      Professor Forman  ");
-	//	JamesCurses::mvwprintwCentered(idWindow, 11, "Hours                   :      15                ");
-	//	JamesCurses::mvwprintwCentered(idWindow, 12, "Difficulty              :      5                 ");
-	//	JamesCurses::mvwprintwCentered(idWindow, 13, "Completion Date         :      9/11/2014         ");
-	//	JamesCurses::mvwprintwCentered(idWindow, 14, "Project Name            :      JamesCA           ");
-	
-
-	
-	//JamesCurses::wrefresh(idWindow);
-	//JamesConsoleUI::hitEnter(idWindow);
+	JamesConsoleUI::showLargeMessage(
+		mainWindow,
+		"ID INFORMATION",
+		"Programmer         : James McCarthy    \n"
+		" Assignment #       : TA #1.2CA         \n"
+		" Assignment Name    : Cellular Automata \n"
+		" Course # and Title : CISC 205 - OOPS   \n"
+		" Class Meeting Time : TTh 9:35 - 12:40  \n"
+		" Instructor         : Professor Forman  \n"
+		" Hours              : 15                \n"
+		" Difficulty         : 5                 \n"
+		" Completion Date    : 9/11/2014         \n"
+		" Project Name       : JamesCA           \n");
 
 
 	refreshBackground();
@@ -501,3 +542,7 @@ int main(int argc, char *argv[])
 
 	return 0;
 }
+
+class MyClass;
+
+

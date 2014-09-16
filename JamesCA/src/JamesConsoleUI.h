@@ -1,3 +1,47 @@
+/*******************************************************************************
+********************************************************************************
+********************************************************************************
+
+ID INFORMATION
+
+Programmer		   :  James McCarthy
+Assignment #	   :  TA #1.3CA
+Assignment Name	   :  Cellular Automata
+Course # and Title :  CISC 205 - OOPS
+Class Meeting Time :  TTh 9:35 - 12:40
+Instructor		   :  Professor Forman
+Hours			   :  17
+Difficulty		   :  5
+Completion Date	   :  9/11/2014
+Project Name	   :  JamesCA
+
+********************************************************************************
+********************************************************************************
+
+"JamesConsoleUI.h" DESCRIPTION
+
+
+
+********************************************************************************
+********************************************************************************
+
+CUSTOM-DEFINED FUNCTION LIST
+
+
+
+
+********************************************************************************
+********************************************************************************
+
+CREDITS
+
+
+
+
+********************************************************************************
+********************************************************************************
+********************************************************************************/
+
 #include "curses.h"
 #include <string>
 using namespace std;
@@ -21,16 +65,36 @@ public:
 	static WINDOW* messageFrame();
 	static WINDOW* largeMessageFrame();
 	
-	//private
+	//NAME:
+	//DESCRIPTION:
 	static void hitEnter(WINDOW* win);
+
+	//NAME:
+	//DESCRIPTION:
 	static int navigationMenu(WINDOW *win, char* menuItems[], int numMenuItems);
+
+	//NAME:
+	//DESCRIPTION:
 	static void printMenuItems(WINDOW *win, char* menuItems[], int numMenuItems, int highlight);
 
-
+	//NAME:
+	//DESCRIPTION:
 	static string showInputMessage(WINDOW* parentWindow, string title, string message);
+
+	//NAME:
+	//DESCRIPTION:
 	static void showConfirmationMessage(WINDOW* parentWindow, string title, string message);
+
+	//NAME:
+	//DESCRIPTION:
 	static void showMessage(WINDOW* parentWindow, string title, string message);
+
+	//NAME:hi
+	//DESCRIPTION: hey
 	static void showLargeMessage(WINDOW* parentWindow, string title, string message);
+
+	//NAME:
+	//DESCRIPTION:
 	static int showNavMenu(WINDOW* parentWindow, string title, char* menuItems[], int nMenuItems);
 
 	enum class Color
